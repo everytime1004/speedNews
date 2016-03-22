@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<table class="table table-bordered">
+  <tr>
+    <th style="width: 6%">제목</th><td><%= Newspaper.find(@clip.newspaper_id).title.gsub(/[&#39;]/, '') %></td>
+  </tr>
+  <tr>
+    <th>날짜</th><td><%= Newspaper.find(@clip.newspaper_id).pubDate.gsub(/\.\d\d\d\d\d\d/, '') %></td>
+  </tr>
+  <tr>
+    <th>링크</th><td><%= link_to '기사 읽기...', Newspaper.find(@clip.newspaper_id).link %></td>
+  </tr>
+  <tr>
+    <th>출판사</th><td><%= Newspaper.find(@clip.newspaper_id).publisher.gsub(/[&#39;]/, '') %></td>
+  </tr>
+  <tr>
+    <th>내용</th><td><%= Newspaper.find(@clip.newspaper_id).description.gsub(/[&#39;]/, '') %></td>
+  </tr>
+  <tr>
+    <th>메모</th><td><%= @clip.memo %></td>
+  </tr>
+</table>
+<div id="Edit_Destroy_link">
+  <td><%= link_to 'Edit', edit_clip_path(@clip) %></td> |
+  <td><%= link_to 'Destroy', @clip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</div>
